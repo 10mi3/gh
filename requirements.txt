@@ -26,3 +26,4 @@ sqlparse==0.4.3
 tzdata==2022.6
 whitenoise==6.2.0
 xhtml2pdf==0.2.5
+django-multiselectfield==0.1.12
