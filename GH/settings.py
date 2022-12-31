@@ -14,7 +14,7 @@ import os
 # from django.core.management.commands.runserver import Command as runserver
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from datetime import timedelta
-
+import dj_database_url
 from decouple import config
 
 from pathlib import Path
@@ -92,39 +92,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'GH.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'GH2',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
-}
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASE_ROUTERS = ['core.router.ApiRouter']
-# DATABASE_APPS_MAPPING = {'crm_data': 'crm_bd'}
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'ENFORCE_SCHEMA': False,
-#         'NAME': 'USSD2',
-#         'CLIENT': {
-#             'host': '127.0.0.1',
-#         }
-#     }
-# }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': dj_database_url.config(        # Feel free to alter this value to suit your needs.        default='postgresql://postgres:postgres@localhost:5432/mysite',        conn_max_age=600    )}
 
 AUTH_USER_MODEL = 'hospital.User'
 # Password validation
